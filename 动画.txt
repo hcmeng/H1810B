@@ -1,0 +1,40 @@
+dell 20:45:07
+
+ rotateAnimation.setAnimationListener///监听方法
+
+
+/////////////平移动画
+   TranslateAnimation translateAnimation = new TranslateAnimation(0, 300, 0, 0);
+       translateAnimation.setDuration(3000); //动画持续时间
+        translateAnimation.setFillAfter(true); //动画之后，停留在最后面
+        translateAnimation.setRepeatMode(0);
+        img.setAnimation(translateAnimation);
+        translateAnimation.start();
+////////////////透明 
+ AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
+        alphaAnimation.setDuration(3000);
+        //实践证明：重复3次的意思是：这个动画首次出现完全后，再重复3次，所以我们会看到有4次
+        alphaAnimation.setRepeatCount(3);
+        alphaAnimation.setRepeatMode(INFINITE);
+        alphaAnimation.setFillAfter(true);
+        img.setAnimation(alphaAnimation);
+        alphaAnimation.start();
+
+////////// 缩放
+ ScaleAnimation scaleAnimation2 = new ScaleAnimation(1f, 2f, 1f, 2f,
+                ScaleAnimation.ABSOLUTE, img.getWidth() / 2f, ScaleAnimation.ABSOLUTE, img.getHeight() / 2f);
+     scaleAnimation2.setDuration(3000);
+        scaleAnimation2.setFillAfter(true);
+        scaleAnimation2.setFillBefore(true);
+        scaleAnimation2.setRepeatMode(ScaleAnimation.REVERSE);
+        img.startAnimation(scaleAnimation2);
+
+//////////旋转
+ RotateAnimation rotateAnimation = new RotateAnimation(0, 360,
+                RELATIVE_TO_PARENT, 0.2F, RELATIVE_TO_PARENT, 0.2F);
+
+        rotateAnimation.setFillAfter(true);
+        rotateAnimation.setDuration(2000);
+        rotateAnimation.setRepeatMode(0);
+        rotateAnimation.setDetachWallpaper(true);
+       img.startAnumation(rotateAnimation);
